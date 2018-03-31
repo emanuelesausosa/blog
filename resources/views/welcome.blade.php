@@ -8,7 +8,7 @@
         <title>Laravel</title>
 
         <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+        <link href="{{asset('css/app.css')}}" rel="stylesheet" type="text/css">
 
         <!-- Styles -->
         <style>
@@ -77,18 +77,21 @@
                 </div>
             @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Question blog
+            <div class="container">
+                <div class="jumbotron">
+                    <h1>
+                        Ask a Question
+                    </h1>
+                    <p>
+                        Ask any Question you want to know
+                    </p>
+                    <p>
+                        <a href="#" class="btn btn-primary btn-lg" role="button">Ask now</a>
+                    </p>                   
                 </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                <h2>
+                    Recent Questions
+                </h2>
             </div>
         </div>
     </body>
