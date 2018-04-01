@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Question;
 
 class QuestionController extends Controller
 {
@@ -13,7 +14,9 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        //
+        $questions = Question::orderBy('id', 'desc')->paginate(5);
+
+        return View('questions.index')->with('questions', $questions);
     }
 
     /**
@@ -23,7 +26,7 @@ class QuestionController extends Controller
      */
     public function create()
     {
-        //
+        return view('questions.create');
     }
 
     /**
@@ -34,7 +37,22 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+       //validate form data
+       $this->validate($request, [
+           'title' => 'required|max:255'         
+       ]);
+
+       //process the data and subm
+       $question = new Question();
+       $question->title = $request->title;
+       $question->description = $request->description;
+
+       //if successfully we want to requesto
+       if($question->save()){
+           return redirect()->route('questions.show', $question->id);
+       }else{
+            return redirect()->route('questions.create');
+       }       
     }
 
     /**
@@ -45,7 +63,11 @@ class QuestionController extends Controller
      */
     public function show($id)
     {
-        //
+        //get data fromm Question db
+        $question = Question::findOrFail($id);
+
+        // return data to view
+        return View('questions.show')->with('question', $question);
     }
 
     /**

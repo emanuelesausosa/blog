@@ -7,6 +7,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">Laravel Answers</a>
             </div>
@@ -15,8 +16,9 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="{{ route('index') }}">Home</a></li>
-                    <li><a href="#">Recent</a></li>
+                    <li><a href="{{route('questions.index')}}">Recent</a></li>
                     <li><a href="#">Popular</a></li>
+                    <li><a href="{{route('questions.create')}}">Make a question</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <a href="#" class="btn btn-primary" style="margin-top:5px;">Ask A Question</a>
